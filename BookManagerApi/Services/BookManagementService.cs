@@ -11,7 +11,6 @@ namespace BookManagerApi.Services
             _context = context;
         }
 
-
         public List<Book> GetAllBooks()
         {
             var books = _context.Books.ToList();
@@ -27,8 +26,7 @@ namespace BookManagerApi.Services
                 if (existingBook == null)
                 {
                     _context.Add(book);
-                    _context.SaveChanges();
-                    Console.WriteLine("dsgsgsgsghsgs");
+                    _context.SaveChanges();                    
                     return book;
                 }
             }
@@ -63,8 +61,7 @@ namespace BookManagerApi.Services
         }
         public bool Delete(long id)
         {
-            //try catch blcok
-            Console.WriteLine("gsgsgadgdg");
+            //try catch blcok          
 
             try
             {
@@ -80,9 +77,7 @@ namespace BookManagerApi.Services
             catch (NullReferenceException e) { 
                 Console.WriteLine(e.Message);
             }
-
             return false;
-
         }
 
         public Book FindBookById(long id)
@@ -94,9 +89,7 @@ namespace BookManagerApi.Services
         public bool BookExists(long id)
         {
             return _context.Books.Any(b => b.Id == id);
-        }
-
-       
+        }       
     }
 }
 
