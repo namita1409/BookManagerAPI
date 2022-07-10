@@ -9,7 +9,7 @@ namespace BookManagerApi.Controllers
     public class BookManagerController : ControllerBase
     {
         private readonly IBookManagementService _bookManagementService;
-
+        
         public BookManagerController(IBookManagementService bookManagementService)
         {
             _bookManagementService = bookManagementService;
@@ -29,7 +29,7 @@ namespace BookManagerApi.Controllers
             var book = _bookManagementService.FindBookById(id);
             return book;
         }
-
+        
         // PUT: api/v1/book/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
@@ -47,14 +47,12 @@ namespace BookManagerApi.Controllers
             _bookManagementService.Create(book);
             return CreatedAtAction(nameof(GetBookById), new { id = book.Id }, book);
         }
-
+        
         [HttpDelete("{id}")]
-
         public IActionResult DeleteBookById(long id)
         {
             _bookManagementService.Delete(id);
             return NoContent();
         }
-
     }
 }
