@@ -65,8 +65,7 @@ namespace BookManagerApi.Services
 
             try
             {
-                var existingBookFound = FindBookById(id);
-                Console.WriteLine(existingBookFound.ToString());
+                var existingBookFound = FindBookById(id);                
                 if (existingBookFound != null)
                 {
                     _context.Remove(existingBookFound);
